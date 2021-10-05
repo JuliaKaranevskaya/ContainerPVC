@@ -1,24 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="ViewController" customModule="ContainerPVC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bx-ue-4xz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="579"/>
+                                <connections>
+                                    <segue destination="Y1A-on-18D" kind="embed" id="XRM-kX-3MU"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUP-Gh-VcC">
+                                <rect key="frame" x="16" y="790" width="382" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="57S-KU-j5T"/>
+                                </constraints>
+                                <state key="normal" title="Пропустить">
+                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                </state>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="S42-Ss-53z">
+                                <rect key="frame" x="146" y="692.5" width="122" height="27.5"/>
+                                <color key="pageIndicatorTintColor" systemColor="systemGrayColor"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXC-5S-0fY">
+                                <rect key="frame" x="16" y="732" width="382" height="46"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Vn1-Ie-KS6"/>
+                                </constraints>
+                                <state key="normal" title="Далее">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CUP-Gh-VcC" secondAttribute="bottom" constant="26" id="73r-g0-mx1"/>
+                            <constraint firstItem="7Bx-ue-4xz" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" constant="-93" id="IGS-ff-jOK"/>
+                            <constraint firstItem="7Bx-ue-4xz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JM7-fT-YN6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CUP-Gh-VcC" secondAttribute="trailing" constant="16" id="LUT-H3-GTq"/>
+                            <constraint firstItem="S42-Ss-53z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7Bx-ue-4xz" secondAttribute="bottom" constant="4" id="Lnu-4g-1YZ"/>
+                            <constraint firstItem="7Bx-ue-4xz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PTu-u4-3IK"/>
+                            <constraint firstItem="CUP-Gh-VcC" firstAttribute="top" secondItem="lXC-5S-0fY" secondAttribute="bottom" constant="12" id="bye-5K-MJg"/>
+                            <constraint firstItem="7Bx-ue-4xz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eGw-2m-O8V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lXC-5S-0fY" secondAttribute="trailing" constant="16" id="f14-aN-xx1"/>
+                            <constraint firstItem="lXC-5S-0fY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fnR-Oq-9Ke"/>
+                            <constraint firstItem="CUP-Gh-VcC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nUw-ia-hYh"/>
+                            <constraint firstItem="S42-Ss-53z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qFX-q1-vZX"/>
+                            <constraint firstItem="lXC-5S-0fY" firstAttribute="top" secondItem="S42-Ss-53z" secondAttribute="bottom" constant="12" id="xIB-oG-Y4H"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="7Bx-ue-4xz" id="6Sg-P9-ZGR"/>
+                        <outlet property="orangeButton" destination="lXC-5S-0fY" id="OKq-YM-U6W"/>
+                        <outlet property="pageControl" destination="S42-Ss-53z" id="oo4-rn-Rwi"/>
+                        <outlet property="whiteButton" destination="CUP-Gh-VcC" id="2O6-vp-Egx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="66.964285714285708"/>
+        </scene>
+        <!--Storyboard Page View Controller-->
+        <scene sceneID="ZLd-kH-Mtu">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Y1A-on-18D" customClass="StoryboardPageViewController" customModule="ContainerPVC" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSy-HC-RDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-39"/>
+        </scene>
+        <!--Storyboard View Controller-->
+        <scene sceneID="tVE-kI-IE7">
+            <objects>
+                <viewController storyboardIdentifier="storyboardid" id="87b-f1-xTQ" customClass="StoryboardViewController" customModule="ContainerPVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ma5-fu-fq2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orangeImage" translatesAutoresizingMaskIntoConstraints="NO" id="FUH-WM-LPF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="627"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Все мерпориятия, шоу и встречи Острова мечты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9b-Ds-sPi">
+                                <rect key="frame" x="16" y="731" width="382" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Узнавай первым о всех акциях и мероприятиях" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AA-K8-KpY">
+                                <rect key="frame" x="16" y="659" width="382" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q51-Xc-rMY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FUH-WM-LPF" firstAttribute="trailing" secondItem="Q51-Xc-rMY" secondAttribute="trailing" id="39D-xu-8MA"/>
+                            <constraint firstItem="FUH-WM-LPF" firstAttribute="top" secondItem="Ma5-fu-fq2" secondAttribute="top" id="Bo9-ve-uIV"/>
+                            <constraint firstItem="Q51-Xc-rMY" firstAttribute="trailing" secondItem="6AA-K8-KpY" secondAttribute="trailing" constant="16" id="FeS-3O-yhj"/>
+                            <constraint firstItem="Q51-Xc-rMY" firstAttribute="trailing" secondItem="k9b-Ds-sPi" secondAttribute="trailing" constant="16" id="QIO-hn-B63"/>
+                            <constraint firstItem="FUH-WM-LPF" firstAttribute="height" secondItem="Ma5-fu-fq2" secondAttribute="height" multiplier="0.7" id="VFi-hr-Hmg"/>
+                            <constraint firstItem="k9b-Ds-sPi" firstAttribute="leading" secondItem="Q51-Xc-rMY" secondAttribute="leading" constant="16" id="WQW-wN-T6J"/>
+                            <constraint firstItem="k9b-Ds-sPi" firstAttribute="centerX" secondItem="6AA-K8-KpY" secondAttribute="centerX" id="ZRd-vn-RRJ"/>
+                            <constraint firstItem="FUH-WM-LPF" firstAttribute="leading" secondItem="Q51-Xc-rMY" secondAttribute="leading" id="aR1-xQ-fhF"/>
+                            <constraint firstItem="k9b-Ds-sPi" firstAttribute="top" secondItem="6AA-K8-KpY" secondAttribute="bottom" constant="12" id="qm5-2A-L9n"/>
+                            <constraint firstItem="6AA-K8-KpY" firstAttribute="top" secondItem="FUH-WM-LPF" secondAttribute="bottom" constant="32" id="wsy-vk-mh7"/>
+                            <constraint firstItem="6AA-K8-KpY" firstAttribute="leading" secondItem="Q51-Xc-rMY" secondAttribute="leading" constant="16" id="wy2-yL-trE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="largeLabel" destination="6AA-K8-KpY" id="EmJ-Sa-Uoz"/>
+                        <outlet property="orangeImage" destination="FUH-WM-LPF" id="ltX-oy-jld"/>
+                        <outlet property="smallLabel" destination="k9b-Ds-sPi" id="g5z-cS-Eya"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3t-RC-asX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1669.5652173913045" y="66.964285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="orangeImage" width="375" height="430"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
