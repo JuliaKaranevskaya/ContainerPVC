@@ -7,9 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, CustomPageViewControllerDelegate {
-    
-    var customPageViewController: StoryboardPageViewController?
+class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     @IBOutlet weak var containerView: UIView!
     
@@ -24,11 +22,7 @@ class ViewController: UIViewController, CustomPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let customPageViewController = customPageViewController else {
-            return
-        }
-                
-        customPageViewController.customDelegate = self
+        
         
         orangeButton.setTitle(buttonTitleString, for: .normal)
         whiteButton.isHidden = hideTheButton
@@ -42,6 +36,26 @@ class ViewController: UIViewController, CustomPageViewControllerDelegate {
     
     func pageChangedTo(index: Int) {
         pageControl.currentPage = index
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let indexVC = StoryboardPageViewController.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC > 0 else {
+            return nil
+        }
+        let before = indexVC - 1
+        
+        return StoryboardPageViewController.orderedViewControllers[before]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let indexVC = StoryboardPageViewController.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC < (StoryboardPageViewController.orderedViewControllers.count - 1) else {
+            return nil
+        }
+        
+        let after = indexVC + 1
+        
+        return StoryboardPageViewController.orderedViewControllers[after]
     }
 }
 

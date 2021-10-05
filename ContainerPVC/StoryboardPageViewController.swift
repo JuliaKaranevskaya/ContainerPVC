@@ -43,7 +43,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
         return vc
     }()
     
-    var orderedViewControllers = [StoryboardViewController]()
+    static var orderedViewControllers = [StoryboardViewController]()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -51,16 +51,16 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = self
+        //dataSource = self
                         
-        orderedViewControllers.append(firstVC)
-        orderedViewControllers.append(secondVC)
-        orderedViewControllers.append(thirdVC)
+        StoryboardPageViewController.orderedViewControllers.append(firstVC)
+        StoryboardPageViewController.orderedViewControllers.append(secondVC)
+        StoryboardPageViewController.orderedViewControllers.append(thirdVC)
  
-        customDelegate?.numberOfPage(numberOfPage: orderedViewControllers.count)
+        customDelegate?.numberOfPage(numberOfPage: StoryboardPageViewController.orderedViewControllers.count)
 
         
-        if let firstViewController = orderedViewControllers.first {
+        if let firstViewController = StoryboardPageViewController.orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
                 animated: true,
@@ -70,36 +70,36 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     }
 }
 
-extension StoryboardPageViewController: UIPageViewControllerDataSource {
+//extension StoryboardPageViewController: UIPageViewControllerDataSource {
+//
+//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+//
+//      if let currentPageViewController = pageViewController.viewControllers?.first as? StoryboardViewController {
+//        let index = orderedViewControllers.firstIndex(of: currentPageViewController)!
+//        viewC.pageControl.currentPage = index
+//      }
+//    }
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-      if let currentPageViewController = pageViewController.viewControllers?.first as? StoryboardViewController {
-        let index = orderedViewControllers.firstIndex(of: currentPageViewController)!
-        viewC.pageControl.currentPage = index
-      }
-    }
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        
+//        guard let indexVC = orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC > 0 else {
+//            return nil
+//        }
+//        let before = indexVC - 1
+//        
+//        return orderedViewControllers[before]
+//    }
+//    
+//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        guard let indexVC = orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC < (orderedViewControllers.count - 1) else {
+//            return nil
+//        }
+//        
+//        let after = indexVC + 1
+//        
+//        return orderedViewControllers[after]
+//    }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        guard let indexVC = orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC > 0 else {
-            return nil
-        }
-        let before = indexVC - 1
-        
-        return orderedViewControllers[before]
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let indexVC = orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC < (orderedViewControllers.count - 1) else {
-            return nil
-        }
-        
-        let after = indexVC + 1
-        
-        return orderedViewControllers[after]
-    }
-    
-}
+
 
 
