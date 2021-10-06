@@ -15,28 +15,25 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     @IBOutlet weak var orangeButton: UIButton!
     @IBOutlet weak var whiteButton: UIButton!
     
-    var buttonTitleString: String?
-    var hideTheButton = false
-    var numberOfPage: Int?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        orangeButton.setTitle(buttonTitleString, for: .normal)
-        whiteButton.isHidden = hideTheButton
-        pageControl.currentPage = numberOfPage ?? 1
-        
     }
     
-    func numberOfPage(numberOfPage: Int) {
-        pageControl.numberOfPages = numberOfPage
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if let desinationViewController = segue.destination as? StoryboardPageViewController {
+        desinationViewController.delegate = self
+        desinationViewController.dataSource = self
+       }
+     }
     
-    func pageChangedTo(index: Int) {
-        pageControl.currentPage = index
-    }
+        func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    
+          if let currentPageViewController = pageViewController.viewControllers?.first as? StoryboardViewController {
+            let index = StoryboardPageViewController.orderedViewControllers.firstIndex(of: currentPageViewController)!
+            pageControl.currentPage = index
+          }
+        }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
