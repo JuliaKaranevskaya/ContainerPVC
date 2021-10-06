@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1890E43270DA6F800C671E4 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890E42270DA6F800C671E4 /* SplashPresenter.swift */; };
+		C1890E45270DB68800C671E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890E44270DB68800C671E4 /* SplashViewController.swift */; };
+		C1890E48270DC2B600C671E4 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890E47270DC2B600C671E4 /* SplashAnimator.swift */; };
 		C1D2E8D0270C42550052D715 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E8CF270C42550052D715 /* AppDelegate.swift */; };
 		C1D2E8D2270C42550052D715 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E8D1270C42550052D715 /* SceneDelegate.swift */; };
 		C1D2E8D7270C42550052D715 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D2E8D5270C42550052D715 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1890E42270DA6F800C671E4 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		C1890E44270DB68800C671E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		C1890E47270DC2B600C671E4 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
 		C1D2E8CC270C42550052D715 /* ContainerPVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContainerPVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D2E8CF270C42550052D715 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1D2E8D1270C42550052D715 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1890E46270DB69300C671E4 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C1890E42270DA6F800C671E4 /* SplashPresenter.swift */,
+				C1890E47270DC2B600C671E4 /* SplashAnimator.swift */,
+				C1890E44270DB68800C671E4 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		C1D2E8C3270C42550052D715 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +82,7 @@
 			children = (
 				C1D2E8CF270C42550052D715 /* AppDelegate.swift */,
 				C1D2E8D1270C42550052D715 /* SceneDelegate.swift */,
+				C1890E46270DB69300C671E4 /* Splash */,
 				C1D2E8EB270C686E0052D715 /* ViewController.swift */,
 				C1D2E8ED270C7BEF0052D715 /* CustomPageViewControllerDelegate.swift */,
 				C1D2E8E7270C4A3C0052D715 /* StoryboardViewController.swift */,
@@ -150,8 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D2E8EC270C686E0052D715 /* ViewController.swift in Sources */,
+				C1890E48270DC2B600C671E4 /* SplashAnimator.swift in Sources */,
 				C1D2E8E6270C49CB0052D715 /* StoryboardPageViewController.swift in Sources */,
 				C1D2E8E8270C4A3C0052D715 /* StoryboardViewController.swift in Sources */,
+				C1890E45270DB68800C671E4 /* SplashViewController.swift in Sources */,
+				C1890E43270DA6F800C671E4 /* SplashPresenter.swift in Sources */,
 				C1D2E8E4270C49960052D715 /* StoryboardVCStrings.swift in Sources */,
 				C1D2E8D0270C42550052D715 /* AppDelegate.swift in Sources */,
 				C1D2E8EE270C7BEF0052D715 /* CustomPageViewControllerDelegate.swift in Sources */,
@@ -305,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DS3Z54QGNB;
 				INFOPLIST_FILE = ContainerPVC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DS3Z54QGNB;
 				INFOPLIST_FILE = ContainerPVC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

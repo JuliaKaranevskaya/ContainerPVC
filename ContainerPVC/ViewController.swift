@@ -18,6 +18,12 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        orangeButton.layer.cornerRadius = 12
+        orangeButton.clipsToBounds = true
+        whiteButton.layer.borderWidth = 2
+        whiteButton.layer.cornerRadius = 12
+        whiteButton.layer.borderColor = UIColor.systemOrange.cgColor
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +38,11 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
           if let currentPageViewController = pageViewController.viewControllers?.first as? StoryboardViewController {
             let index = StoryboardPageViewController.orderedViewControllers.firstIndex(of: currentPageViewController)!
             pageControl.currentPage = index
+            if index == 2 {
+                whiteButton.isHidden = true
+            } else {
+                whiteButton.isHidden = false
+            }
           }
         }
     
