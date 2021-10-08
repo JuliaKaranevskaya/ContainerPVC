@@ -17,19 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AVc-cF-XmG">
-                                <rect key="frame" x="107" y="353" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Kc2-kR-MNI"/>
-                                    <constraint firstAttribute="height" constant="200" id="tO2-r6-Hib"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gOI-yL-gCB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="AVc-cF-XmG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IEk-lC-BUY"/>
-                            <constraint firstItem="AVc-cF-XmG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="kCU-dp-kuk"/>
+                            <constraint firstItem="gOI-yL-gCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1e2-z2-ly5"/>
+                            <constraint firstItem="gOI-yL-gCB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="qVj-cj-PpZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gOI-yL-gCB" secondAttribute="trailing" id="sFq-nh-PtU"/>
+                            <constraint firstAttribute="bottom" secondItem="gOI-yL-gCB" secondAttribute="bottom" id="wl8-1z-cF7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +37,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="168" height="214"/>
+        <image name="launchScreen" width="375" height="812"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

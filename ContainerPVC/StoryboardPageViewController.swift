@@ -12,8 +12,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     lazy var firstVC: StoryboardViewController = {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "storyboardid") as! StoryboardViewController
         vc.imageString = ImageString.firstVC.rawValue
-        vc.largeLabelString = LargeLabelString.firstVC.rawValue
-        vc.smallLabelString = SmallLabelString.firstVC.rawValue
+      
      
         return vc
     }()
@@ -21,8 +20,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     lazy var secondVC: StoryboardViewController = {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "storyboardid") as! StoryboardViewController
         vc.imageString = ImageString.secondVC.rawValue
-        vc.largeLabelString = LargeLabelString.secondVC.rawValue
-        vc.smallLabelString = SmallLabelString.secondVC.rawValue
+       
   
         return vc
     }()
@@ -30,8 +28,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     lazy var thirdVC: StoryboardViewController = {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "storyboardid") as! StoryboardViewController
         vc.imageString = ImageString.thirdVC.rawValue
-        vc.largeLabelString = LargeLabelString.thirdVC.rawValue
-        vc.smallLabelString = SmallLabelString.thirdVC.rawValue
+      
     
         return vc
     }()

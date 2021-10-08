@@ -10,13 +10,6 @@ import UIKit
 class StoryboardViewController: UIViewController {
     
     @IBOutlet weak var orangeImage: UIImageView!
-    @IBOutlet weak var largeLabel: UILabel!
-    @IBOutlet weak var smallLabel: UILabel!
-    
-    
-//    @IBAction func orangeButton(_ sender: Any) {
-//    }
-    
     
     var imageString: String?
     var largeLabelString: String?
@@ -29,8 +22,6 @@ class StoryboardViewController: UIViewController {
         super.viewDidLoad()
         
         orangeImage.image = UIImage(named: imageString ?? "")
-        largeLabel.text = largeLabelString
-        smallLabel.text = smallLabelString
         
 
     }
