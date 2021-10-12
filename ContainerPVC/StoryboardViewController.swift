@@ -20,10 +20,7 @@ class StoryboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         orangeImage.image = UIImage(named: imageString ?? "")
-        
-
     }
 }
 

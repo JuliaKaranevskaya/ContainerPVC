@@ -7,12 +7,12 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
    // private var splashPresenter: SplashPresenterDescription = SplashPresenter()
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        splashPresenter.present()

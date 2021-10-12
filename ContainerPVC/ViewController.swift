@@ -7,40 +7,25 @@
 
 import UIKit
 
-/*
- - по нажатию кнопок ничего не происходит
- + на последнем экране текст у кнопки должен быть другой
- + и чуть ниже должна быть кнопка
- + нет скругления белой вьюхи
- + поворот надо отключить
- - чтобы смена системной темы не влияла но приложение
- - проверить запуск приложения на iOS 12
- - текст на SE 1го поколения проверяла должен влазить
- + проверить оишбки констреинтов
- */
-
 class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    var pageVC: StoryboardPageViewController!
 
     @IBOutlet weak var largeLabel: UILabel!
-  
     @IBOutlet weak var smallLabel: UILabel!
-    
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var roundedView: UIView!
-    
     @IBOutlet weak var orangeButton: UIButton!
-    
     @IBOutlet weak var whiteButton: UIButton!
-    
     @IBOutlet weak var secondOrangeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        //for dark mode
         roundedView.backgroundColor = UIColor(named: "roundedViewColor")
         largeLabel.textColor = UIColor(named: "labelBlackColor")
         smallLabel.textColor = UIColor(named: "labelBlackColor")
+        //buttons' ui
         orangeButton.layer.cornerRadius = 12
         orangeButton.clipsToBounds = true
         secondOrangeButton.layer.cornerRadius = 12
@@ -51,15 +36,57 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         orangeButton.translatesAutoresizingMaskIntoConstraints = false
         orangeButton.setTitle("Далее", for: .normal)
         whiteButton.setTitle("Пропустить", for: .normal)
-        
         secondOrangeButton.isHidden = true
-        
     }
     
+    //Actions
+    @IBAction func orangeButtonPressed(_ sender: UIButton) {
+        pageVC.goToNextPage()
+   
+        if let currentPageViewController = pageVC.viewControllers?.first as? StoryboardViewController {
+          let index = StoryboardPageViewController.orderedViewControllers.firstIndex(of: currentPageViewController)!
+          pageControl.currentPage = index
+          
+          if index == 2 {
+              whiteButton.isHidden = true
+              orangeButton.isHidden = true
+              secondOrangeButton.isHidden = false
+              secondOrangeButton.setTitle("Начать пользоваться", for: .normal)
+              largeLabel.text = LargeLabelString.thirdVC.rawValue
+              smallLabel.text = SmallLabelString.thirdVC.rawValue
+          } else if index == 1{
+              whiteButton.isHidden = false
+              secondOrangeButton.isHidden = true
+              orangeButton.isHidden = false
+              largeLabel.text = LargeLabelString.secondVC.rawValue
+              smallLabel.text = SmallLabelString.secondVC.rawValue
+          } else if index == 0 {
+              whiteButton.isHidden = false
+              secondOrangeButton.isHidden = true
+              orangeButton.isHidden = false
+              largeLabel.text = LargeLabelString.firstVC.rawValue
+              smallLabel.text = SmallLabelString.firstVC.rawValue
+          }
+        }
+    }
+    
+    
+    @IBAction func secondOrangeButtonPressed(_ sender: UIButton) {
+        //shows SplashViewController (action in storyboard)
+    }
+    
+    
+    @IBAction func whiteButtonPressed(_ sender: UIButton) {
+        //shows SplashViewController (action in storyboard)
+    }
+    
+    //Logic of changing screens
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if let desinationViewController = segue.destination as? StoryboardPageViewController {
         desinationViewController.delegate = self
         desinationViewController.dataSource = self
+        pageVC = desinationViewController
+        
        }
      }
     
@@ -74,10 +101,20 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
                 orangeButton.isHidden = true
                 secondOrangeButton.isHidden = false
                 secondOrangeButton.setTitle("Начать пользоваться", for: .normal)
-            } else {
+                largeLabel.text = LargeLabelString.thirdVC.rawValue
+                smallLabel.text = SmallLabelString.thirdVC.rawValue
+            } else if index == 1{
                 whiteButton.isHidden = false
                 secondOrangeButton.isHidden = true
                 orangeButton.isHidden = false
+                largeLabel.text = LargeLabelString.secondVC.rawValue
+                smallLabel.text = SmallLabelString.secondVC.rawValue
+            } else if index == 0 {
+                whiteButton.isHidden = false
+                secondOrangeButton.isHidden = true
+                orangeButton.isHidden = false
+                largeLabel.text = LargeLabelString.firstVC.rawValue
+                smallLabel.text = SmallLabelString.firstVC.rawValue
             }
           }
         }
@@ -101,5 +138,10 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         
         return StoryboardPageViewController.orderedViewControllers[after]
     }
+    
 }
+
+
+
+
 
