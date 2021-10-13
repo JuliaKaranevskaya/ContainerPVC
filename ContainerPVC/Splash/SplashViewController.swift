@@ -19,7 +19,7 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backToMainScreenButton.setTitle("Back to Main Screen", for: .normal)
+        backToMainScreenButton.setTitle("Вернуться к главному экрану", for: .normal)
         
     }
     
