@@ -5,6 +5,16 @@
 //  Created by Юлия Караневская on 5.10.21.
 //
 
+
+/*
+ 1. если галку убрать, то наложения не будет, но pageControl  будет двигаться
+ нужно чтобы и pageControl оставался на месте, и белая вью увеличивалась при необходимости
+ + 2. статики тоже надо убрать
+ + 3. чтобы текст для первого контролера брался из констант, а не сториборда
+ + 4. и попробуй добавить жест свайпа лево/право на белую вью, чтобы контролеры менялись)
+ а то сейчас только по картинке свайпается
+ */
+
 import UIKit
 
 class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -37,6 +47,36 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         orangeButton.setTitle("Далее", for: .normal)
         whiteButton.setTitle("Пропустить", for: .normal)
         secondOrangeButton.isHidden = true
+        //labels
+        largeLabel.text = LargeLabelString.firstVC.rawValue
+        smallLabel.text = SmallLabelString.firstVC.rawValue
+        
+        //swipe gestures of the white view
+        let gestureToNextPage = UISwipeGestureRecognizer(target: self, action: #selector(goToNextPage))
+        gestureToNextPage.direction = .left
+        let gestureToPreviousPage = UISwipeGestureRecognizer(target: self, action: #selector(goToPreviousPage))
+        gestureToPreviousPage.direction = .right
+        roundedView.addGestureRecognizer(gestureToNextPage)
+        roundedView.addGestureRecognizer(gestureToPreviousPage)
+        
+    }
+    
+    @objc private func goToNextPage() {
+        pageVC.goToNextPage()
+        if let currentPageViewController = pageVC.viewControllers?.first as? StoryboardViewController {
+            let index = pageVC.orderedViewControllers.firstIndex(of: currentPageViewController)!
+            
+            manageRoundedViewContentBy(index: index)
+        }
+    }
+    
+    @objc private func goToPreviousPage() {
+        pageVC.goToPreviousPage()
+        if let currentPageViewController = pageVC.viewControllers?.first as? StoryboardViewController {
+            let index = pageVC.orderedViewControllers.firstIndex(of: currentPageViewController)!
+            
+            manageRoundedViewContentBy(index: index)
+        }
     }
     
     //Actions
@@ -44,29 +84,9 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         pageVC.goToNextPage()
    
         if let currentPageViewController = pageVC.viewControllers?.first as? StoryboardViewController {
-          let index = StoryboardPageViewController.orderedViewControllers.firstIndex(of: currentPageViewController)!
-          pageControl.currentPage = index
+            let index = pageVC.orderedViewControllers.firstIndex(of: currentPageViewController)!
           
-          if index == 2 {
-              whiteButton.isHidden = true
-              orangeButton.isHidden = true
-              secondOrangeButton.isHidden = false
-              secondOrangeButton.setTitle("Начать пользоваться", for: .normal)
-              largeLabel.text = LargeLabelString.thirdVC.rawValue
-              smallLabel.text = SmallLabelString.thirdVC.rawValue
-          } else if index == 1{
-              whiteButton.isHidden = false
-              secondOrangeButton.isHidden = true
-              orangeButton.isHidden = false
-              largeLabel.text = LargeLabelString.secondVC.rawValue
-              smallLabel.text = SmallLabelString.secondVC.rawValue
-          } else if index == 0 {
-              whiteButton.isHidden = false
-              secondOrangeButton.isHidden = true
-              orangeButton.isHidden = false
-              largeLabel.text = LargeLabelString.firstVC.rawValue
-              smallLabel.text = SmallLabelString.firstVC.rawValue
-          }
+          manageRoundedViewContentBy(index: index)
         }
     }
     
@@ -78,6 +98,32 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
     
     @IBAction func whiteButtonPressed(_ sender: UIButton) {
         //shows SplashViewController (action in storyboard)
+    }
+    
+    private func manageRoundedViewContentBy(index: Int) {
+        
+        pageControl.currentPage = index
+        
+        if index == 2 {
+            whiteButton.isHidden = true
+            orangeButton.isHidden = true
+            secondOrangeButton.isHidden = false
+            secondOrangeButton.setTitle("Начать пользоваться", for: .normal)
+            largeLabel.text = LargeLabelString.thirdVC.rawValue
+            smallLabel.text = SmallLabelString.thirdVC.rawValue
+        } else if index == 1{
+            whiteButton.isHidden = false
+            secondOrangeButton.isHidden = true
+            orangeButton.isHidden = false
+            largeLabel.text = LargeLabelString.secondVC.rawValue
+            smallLabel.text = SmallLabelString.secondVC.rawValue
+        } else if index == 0 {
+            whiteButton.isHidden = false
+            secondOrangeButton.isHidden = true
+            orangeButton.isHidden = false
+            largeLabel.text = LargeLabelString.firstVC.rawValue
+            smallLabel.text = SmallLabelString.firstVC.rawValue
+        }
     }
     
     //Logic of changing screens
@@ -93,50 +139,30 @@ class ViewController: UIViewController, UIPageViewControllerDataSource, UIPageVi
         func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     
           if let currentPageViewController = pageViewController.viewControllers?.first as? StoryboardViewController {
-            let index = StoryboardPageViewController.orderedViewControllers.firstIndex(of: currentPageViewController)!
-            pageControl.currentPage = index
+            let index = pageVC.orderedViewControllers.firstIndex(of: currentPageViewController)!
             
-            if index == 2 {
-                whiteButton.isHidden = true
-                orangeButton.isHidden = true
-                secondOrangeButton.isHidden = false
-                secondOrangeButton.setTitle("Начать пользоваться", for: .normal)
-                largeLabel.text = LargeLabelString.thirdVC.rawValue
-                smallLabel.text = SmallLabelString.thirdVC.rawValue
-            } else if index == 1{
-                whiteButton.isHidden = false
-                secondOrangeButton.isHidden = true
-                orangeButton.isHidden = false
-                largeLabel.text = LargeLabelString.secondVC.rawValue
-                smallLabel.text = SmallLabelString.secondVC.rawValue
-            } else if index == 0 {
-                whiteButton.isHidden = false
-                secondOrangeButton.isHidden = true
-                orangeButton.isHidden = false
-                largeLabel.text = LargeLabelString.firstVC.rawValue
-                smallLabel.text = SmallLabelString.firstVC.rawValue
-            }
+            manageRoundedViewContentBy(index: index)
           }
         }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let indexVC = StoryboardPageViewController.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC > 0 else {
+        guard let indexVC = pageVC.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC > 0 else {
             return nil
         }
         let before = indexVC - 1
         
-        return StoryboardPageViewController.orderedViewControllers[before]
+        return pageVC.orderedViewControllers[before]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let indexVC = StoryboardPageViewController.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC < (StoryboardPageViewController.orderedViewControllers.count - 1) else {
+        guard let indexVC = pageVC.orderedViewControllers.firstIndex(of: viewController as! StoryboardViewController), indexVC < (pageVC.orderedViewControllers.count - 1) else {
             return nil
         }
         
         let after = indexVC + 1
         
-        return StoryboardPageViewController.orderedViewControllers[after]
+        return pageVC.orderedViewControllers[after]
     }
     
 }

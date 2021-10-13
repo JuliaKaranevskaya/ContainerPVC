@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,16 +25,31 @@
                                     <constraint firstAttribute="height" constant="200" id="y8p-i1-GA5"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VlL-cA-FzN">
+                                <rect key="frame" x="184" y="778" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BrK-f7-Zdw"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" name="roundedViewColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToMainScreenButtonPressed:" destination="dpF-ZG-jdm" eventType="touchUpInside" id="tlm-Qd-25w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f4y-3a-BXA"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
+                            <constraint firstItem="VlL-cA-FzN" firstAttribute="centerX" secondItem="2KS-vO-lV3" secondAttribute="centerX" id="W9b-nB-YNx"/>
                             <constraint firstItem="2KS-vO-lV3" firstAttribute="centerY" secondItem="f4y-3a-BXA" secondAttribute="centerY" id="X7j-1k-Xxq"/>
                             <constraint firstItem="2KS-vO-lV3" firstAttribute="centerX" secondItem="f4y-3a-BXA" secondAttribute="centerX" id="oQa-8w-QCf"/>
+                            <constraint firstItem="VlL-cA-FzN" firstAttribute="bottom" secondItem="f4y-3a-BXA" secondAttribute="bottom" id="vBc-6v-9zX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BUM-4Q-d2q"/>
                     <connections>
+                        <outlet property="backToMainScreenButton" destination="VlL-cA-FzN" id="zXd-BH-f0N"/>
                         <outlet property="logoImage" destination="2KS-vO-lV3" id="e4H-VU-biI"/>
                     </connections>
                 </viewController>
@@ -61,13 +77,13 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vt-1I-jV1">
                                 <rect key="frame" x="0.0" y="442.5" width="414" height="453.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Узнавайте первым о всех акциях и мероприятиях" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT1-oI-eYt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT1-oI-eYt">
                                         <rect key="frame" x="16" y="4" width="382" height="180"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Все мероприятия, шоу и встречи острова мечты" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-Fj-EAv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-Fj-EAv">
                                         <rect key="frame" x="16" y="188" width="382" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -225,6 +241,9 @@
     <resources>
         <image name="logo" width="168" height="214"/>
         <image name="orangeImage" width="375" height="430"/>
+        <namedColor name="roundedViewColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

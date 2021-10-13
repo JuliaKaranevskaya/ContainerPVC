@@ -8,6 +8,9 @@
 import UIKit
 
 class SplashViewController: UIViewController {
+    
+    @IBOutlet weak var backToMainScreenButton: UIButton!
+    
 
     @IBOutlet weak var logoImage: UIImageView!
     
@@ -16,10 +19,14 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-
+        backToMainScreenButton.setTitle("Back to Main Screen", for: .normal)
         
     }
+    
+    @IBAction func backToMainScreenButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 
 }

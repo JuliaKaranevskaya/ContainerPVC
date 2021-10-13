@@ -30,7 +30,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     }()
     
     //array of screens
-    static var orderedViewControllers = [StoryboardViewController]()
+    public var orderedViewControllers = [StoryboardViewController]()
     
     //style of pageVC
     required init?(coder aDecoder: NSCoder) {
@@ -39,12 +39,12 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        StoryboardPageViewController.orderedViewControllers.append(firstVC)
-        StoryboardPageViewController.orderedViewControllers.append(secondVC)
-        StoryboardPageViewController.orderedViewControllers.append(thirdVC)
+        orderedViewControllers.append(firstVC)
+        orderedViewControllers.append(secondVC)
+        orderedViewControllers.append(thirdVC)
  
         //setting the firsr screen
-        if let firstViewController = StoryboardPageViewController.orderedViewControllers.first {
+        if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
                 animated: true,
