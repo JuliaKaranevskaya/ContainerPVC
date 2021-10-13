@@ -30,7 +30,7 @@ class StoryboardPageViewController: UIPageViewController, UIScrollViewDelegate {
     }()
     
     //array of screens
-    public var orderedViewControllers = [StoryboardViewController]()
+    var orderedViewControllers = [StoryboardViewController]()
     
     //style of pageVC
     required init?(coder aDecoder: NSCoder) {
