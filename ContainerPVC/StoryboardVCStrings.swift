@@ -14,7 +14,7 @@ enum ImageString: String {
 }
 
 enum LargeLabelString: String {
-    case firstVC = "Узнавай первым о всех акциях и мероприятих"
+    case firstVC = "Узнавай первым о всех акциях и мероприятих х акциях и мероприятих"
     case secondVC = "Покупай билеты легко!"
     case thirdVC = "Управляй своими билетами и бонусами"
 }

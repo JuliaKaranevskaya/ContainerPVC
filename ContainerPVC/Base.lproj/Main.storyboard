@@ -75,7 +75,7 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vt-1I-jV1">
-                                <rect key="frame" x="0.0" y="425" width="414" height="471"/>
+                                <rect key="frame" x="0.0" y="391" width="414" height="471"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z7s-GA-5s2">
                                         <rect key="frame" x="0.0" y="16" width="414" height="297"/>
@@ -95,7 +95,7 @@
                                             <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYd-wz-3dJ">
                                                 <rect key="frame" x="87" y="90" width="240" height="207"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="207" id="iT8-IW-aDD"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="iT8-IW-aDD"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -104,7 +104,6 @@
                                             <constraint firstAttribute="trailing" secondItem="qsy-Fj-EAv" secondAttribute="trailing" constant="16" id="3Pd-zC-wO6"/>
                                             <constraint firstAttribute="trailing" secondItem="wT1-oI-eYt" secondAttribute="trailing" constant="16" id="44R-rs-zP4"/>
                                             <constraint firstItem="wT1-oI-eYt" firstAttribute="leading" secondItem="z7s-GA-5s2" secondAttribute="leading" constant="16" id="Kh2-sY-3H1"/>
-                                            <constraint firstItem="JYd-wz-3dJ" firstAttribute="leading" secondItem="z7s-GA-5s2" secondAttribute="leading" constant="87" id="Nzk-qM-n8U"/>
                                             <constraint firstItem="qsy-Fj-EAv" firstAttribute="leading" secondItem="z7s-GA-5s2" secondAttribute="leading" constant="16" id="QUy-nv-FYt"/>
                                         </constraints>
                                     </stackView>
@@ -164,10 +163,11 @@
                                     <constraint firstAttribute="trailing" secondItem="JO8-Ft-nuK" secondAttribute="trailing" constant="16" id="4HT-we-apU"/>
                                     <constraint firstItem="PEG-5s-VJJ" firstAttribute="leading" secondItem="4Vt-1I-jV1" secondAttribute="leading" constant="16" id="6Is-AI-bIG"/>
                                     <constraint firstItem="WJ3-mB-j0W" firstAttribute="leading" secondItem="4Vt-1I-jV1" secondAttribute="leading" constant="16" id="9eF-eY-b38"/>
+                                    <constraint firstItem="VLY-FI-43b" firstAttribute="top" secondItem="4Vt-1I-jV1" secondAttribute="top" constant="329" id="Evw-rs-XzO"/>
                                     <constraint firstItem="WJ3-mB-j0W" firstAttribute="top" secondItem="VLY-FI-43b" secondAttribute="bottom" constant="4" id="Rba-TV-PDF"/>
                                     <constraint firstAttribute="bottom" secondItem="JO8-Ft-nuK" secondAttribute="bottom" constant="46" id="Smh-78-Z4N"/>
                                     <constraint firstAttribute="trailing" secondItem="WJ3-mB-j0W" secondAttribute="trailing" constant="16" id="UYt-66-NAn"/>
-                                    <constraint firstItem="VLY-FI-43b" firstAttribute="centerX" secondItem="4Vt-1I-jV1" secondAttribute="centerX" id="Wrw-bg-8Lh"/>
+                                    <constraint firstItem="VLY-FI-43b" firstAttribute="centerX" secondItem="WJ3-mB-j0W" secondAttribute="centerX" id="XST-Wp-ogg"/>
                                     <constraint firstItem="VLY-FI-43b" firstAttribute="top" secondItem="z7s-GA-5s2" secondAttribute="bottom" constant="16" id="XVP-tc-Mzf"/>
                                     <constraint firstAttribute="trailing" secondItem="z7s-GA-5s2" secondAttribute="trailing" id="Xty-pW-ogC"/>
                                     <constraint firstAttribute="bottom" secondItem="WJ3-mB-j0W" secondAttribute="bottom" constant="70" id="cNg-1s-iU9"/>
@@ -193,7 +193,7 @@
                             <constraint firstAttribute="trailing" secondItem="ADa-11-HZV" secondAttribute="trailing" id="TyW-fY-Qks"/>
                             <constraint firstItem="ADa-11-HZV" firstAttribute="leading" secondItem="MHH-fv-m8j" secondAttribute="leading" id="UYW-iZ-Y1a"/>
                             <constraint firstItem="4Vt-1I-jV1" firstAttribute="leading" secondItem="MHH-fv-m8j" secondAttribute="leading" id="dzF-Sx-eUL"/>
-                            <constraint firstAttribute="bottom" secondItem="4Vt-1I-jV1" secondAttribute="bottom" id="fG1-PH-qnO"/>
+                            <constraint firstItem="4Qs-Kv-dDJ" firstAttribute="bottom" secondItem="4Vt-1I-jV1" secondAttribute="bottom" id="fG1-PH-qnO"/>
                         </constraints>
                     </view>
                     <connections>
